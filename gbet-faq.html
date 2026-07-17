@@ -20,7 +20,6 @@
     --radius:  8px;
     --modal-bg: rgba(8,14,28,0.97);
     --card-bg:  rgba(10,20,40,0.72);
-    --grid-line: rgba(241,166,17,0.05);
   }
 
   /* ── Animated grid background ── */
@@ -112,7 +111,7 @@
     backdrop-filter: blur(12px);
     letter-spacing: 0.03em;
   }
-  #searchInput::placeholder { color: rgba(200,230,255,0.3); }
+  #searchInput::placeholder { color: rgba(230,215,190,0.35); }
   #searchInput:focus {
     border-color: var(--cyan);
     box-shadow: 0 0 0 1px rgba(241,166,17,0.3), 0 0 20px rgba(241,166,17,0.12);
@@ -358,7 +357,7 @@
     flex: 1;
     font-size: 14px;
     line-height: 1.85;
-    color: rgba(200,230,255,0.85);
+    color: var(--text);
     white-space: pre-wrap;
     word-break: break-word;
   }
@@ -623,7 +622,7 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(200,230,255,0.80);
+    color: var(--text-dim);
     text-align: center;
     line-height: 1.3;
     transition: color 0.22s;
