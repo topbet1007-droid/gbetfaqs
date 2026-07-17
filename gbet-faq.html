@@ -388,10 +388,10 @@
     align-items: center;
     gap: 8px;
     padding: 11px 28px;
-    background: transparent;
-    border: 1px solid var(--cyan);
+    background: linear-gradient(180deg, var(--gold2), var(--cyan));
+    border: 1px solid var(--gold2);
     border-radius: 6px;
-    color: var(--cyan);
+    color: #0a1428;
     font-family: 'Cinzel', serif;
     font-size: 14px;
     font-weight: 700;
@@ -399,7 +399,7 @@
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
-    box-shadow: 0 0 14px rgba(241,166,17,0.2), inset 0 0 14px rgba(241,166,17,0.04);
+    box-shadow: 0 0 14px rgba(241,166,17,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
     transition: all 0.2s;
     position: relative;
     overflow: hidden;
@@ -408,14 +408,13 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(241,166,17,0.15), transparent);
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
     opacity: 0;
     transition: opacity 0.2s;
   }
   .btn-contact:hover {
-    box-shadow: 0 0 24px rgba(241,166,17,0.4), inset 0 0 24px rgba(241,166,17,0.08);
+    box-shadow: 0 0 24px rgba(241,166,17,0.55), inset 0 1px 0 rgba(255,255,255,0.4);
     transform: translateY(-2px);
-    text-shadow: 0 0 8px rgba(241,166,17,0.8);
   }
   .btn-contact:hover::before { opacity: 1; }
 
@@ -425,9 +424,9 @@
     gap: 8px;
     padding: 11px 28px;
     background: transparent;
-    border: 1px solid rgba(139,26,43,0.5);
+    border: 1px solid rgba(139,26,43,0.6);
     border-radius: 6px;
-    color: rgba(200,150,255,0.9);
+    color: var(--gold2);
     font-family: 'Cinzel', serif;
     font-size: 14px;
     font-weight: 700;
@@ -435,14 +434,14 @@
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
-    box-shadow: 0 0 14px rgba(139,26,43,0.15), inset 0 0 14px rgba(139,26,43,0.04);
+    box-shadow: 0 0 14px rgba(139,26,43,0.2), inset 0 0 14px rgba(139,26,43,0.05);
     transition: all 0.2s;
   }
   .btn-goback:hover {
     border-color: var(--purple);
-    box-shadow: 0 0 24px rgba(139,26,43,0.35), inset 0 0 24px rgba(139,26,43,0.08);
+    box-shadow: 0 0 24px rgba(139,26,43,0.4), inset 0 0 24px rgba(139,26,43,0.1);
     transform: translateY(-2px);
-    color: #d090ff;
+    color: #fdd82d;
   }
 
   /* ── Music Button ── */
@@ -807,13 +806,13 @@
 
 <!-- Bottom Bar -->
 <div class="bottom-bar">
-  <a href="https://secure.livechatinc.com/licence/19362461/v2/open_chat.cgi?group=3" target="_blank" class="btn-contact">
+  <a href="https://forms.helpdesk.com?licenseID=1574522501&contactFormID=f3af8924-dab2-4ac6-9d03-474e83a866b9" target="_blank" class="btn-contact">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
     </svg>
     Contact Us
   </a>
-  <a href="https://www.Gbet.com/" target="_blank" class="btn-goback">
+  <a href="https://www.57919293.com/" target="_blank" class="btn-goback">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <path d="M3 12h18M3 12l6-6M3 12l6 6"/>
     </svg>
