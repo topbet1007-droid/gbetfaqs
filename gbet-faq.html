@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>6BET – Frequently Asked Questions</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cyan:    #00E5FF;
+    --purple:  #BF00FF;
+    --accent:  #00E5FF;
+    --border:  rgba(0,229,255,0.18);
+    --text:    #E8F4FF;
+    --text-dim: rgba(200,230,255,0.6);
+    --radius:  8px;
+    --modal-bg: rgba(4,8,24,0.97);
+    --card-bg:  rgba(6,12,36,0.7);
+    --grid-line: rgba(0,229,255,0.06);
+  }
+
+  /* ── Animated grid background ── */
+  body {
+    background-color: #020510;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+      radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(191,0,255,0.22) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 100%,  rgba(0,229,255,0.14) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 20% 60%,   rgba(191,0,255,0.10) 0%, transparent 70%);
+    background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 160px;
+  }
+
+  /* Scanline overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.07) 2px,
+      rgba(0,0,0,0.07) 4px
+    );
+    pointer-events: none;
+    z-index: 9998;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .header .logo-img {
+    max-height: 90px;
+    max-width: 260px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 20px rgba(0,229,255,0.5)) drop-shadow(0 0 40px rgba(191,0,255,0.3));
+  }
+  .header h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 8px;
+    text-shadow: 0 0 20px rgba(0,229,255,0.6), 0 0 40px rgba(0,229,255,0.3);
+  }
+  .header p {
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+  /* Neon divider under header */
+  .header::after {
+    content: '';
+    display: block;
+    width: 160px;
+    height: 1px;
+    margin: 18px auto 0;
+    background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
+    box-shadow: 0 0 10px var(--cyan);
+  }
+
+  /* ── Search ── */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    pointer-events: none;
+    color: var(--cyan);
+  }
+  #searchInput {
+    width: 100%;
+    padding: 14px 16px 14px 46px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    backdrop-filter: blur(12px);
+    letter-spacing: 0.03em;
+  }
+  #searchInput::placeholder { color: rgba(200,230,255,0.3); }
+  #searchInput:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 1px rgba(0,229,255,0.3), 0 0 20px rgba(0,229,255,0.12);
+  }
+
+  /* ── Categories ── */
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .cat-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(0,229,255,0.04);
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 4px;
+    color: var(--text-dim);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(191,0,255,0.08));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .cat-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 12px rgba(0,229,255,0.2), inset 0 0 12px rgba(0,229,255,0.05);
+  }
+  .cat-btn:hover::before { opacity: 1; }
+  .cat-btn.active {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: rgba(0,229,255,0.08);
+    box-shadow: 0 0 16px rgba(0,229,255,0.25), inset 0 0 16px rgba(0,229,255,0.06);
+    text-shadow: 0 0 8px rgba(0,229,255,0.8);
+  }
+  .cat-btn:active { transform: scale(0.97); }
+
+  /* ── FAQ Grid ── */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 600px) {
+    .faq-grid { grid-template-columns: 1fr; }
+
+    /* Compact header on mobile */
+    .header { margin-bottom: 20px; }
+    .header .logo-img { max-height: 56px; max-width: 180px; margin-bottom: 8px; }
+    .header h1 { font-size: 17px; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .header p { font-size: 11px; }
+    .header::after { margin: 10px auto 0; width: 100px; }
+
+    /* Smaller home cards */
+    .home-card { padding: 16px 8px 14px; gap: 8px; border-radius: 12px; }
+    .home-card .icon-wrap { width: 56px; height: 56px; border-radius: 14px; }
+    .home-card .icon-wrap svg { width: 38px; height: 38px; }
+    .home-card .label { font-size: 11px; letter-spacing: 0.06em; }
+  }
+
+  .faq-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: var(--card-bg);
+    border: 1px solid rgba(0,229,255,0.12);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+    color: var(--text);
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+    transition: all 0.22s;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  /* Left neon accent bar */
+  .faq-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--cyan), var(--purple));
+    opacity: 0;
+    transition: opacity 0.22s;
+    box-shadow: 0 0 8px var(--cyan);
+  }
+  .faq-card:hover {
+    background: rgba(0,229,255,0.06);
+    border-color: rgba(0,229,255,0.4);
+    box-shadow: 0 0 20px rgba(0,229,255,0.1), inset 0 0 20px rgba(0,229,255,0.03);
+    transform: translateY(-1px);
+    color: #fff;
+  }
+  .faq-card:hover::before { opacity: 1; }
+  .faq-card .arrow {
+    flex-shrink: 0;
+    opacity: 0.4;
+    color: var(--cyan);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .faq-card:hover .arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+
+  /* ── Modal ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .modal-box {
+    background: var(--modal-bg);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 580px;
+    max-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,229,255,0.25);
+    box-shadow:
+      0 0 0 1px rgba(191,0,255,0.1),
+      0 32px 80px rgba(0,0,0,0.8),
+      0 0 60px rgba(0,229,255,0.08),
+      inset 0 1px 0 rgba(0,229,255,0.1);
+    animation: slideUp 0.28s cubic-bezier(0.22,1,0.36,1);
+    overflow: hidden;
+    position: relative;
+  }
+  /* Corner accents */
+  .modal-box::before, .modal-box::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--cyan);
+    border-style: solid;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .modal-box::before { top: 0; left: 0; border-width: 2px 0 0 2px; border-radius: 12px 0 0 0; }
+  .modal-box::after  { bottom: 0; right: 0; border-width: 0 2px 2px 0; border-radius: 0 0 12px 0; }
+
+  .modal-header {
+    padding: 22px 24px 18px;
+    border-bottom: 1px solid rgba(0,229,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-shrink: 0;
+    background: rgba(0,229,255,0.02);
+  }
+  .modal-category {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-shadow: 0 0 8px rgba(0,229,255,0.7);
+  }
+  .modal-question {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .modal-close {
+    background: rgba(0,229,255,0.06);
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .modal-close:hover {
+    background: rgba(0,229,255,0.15);
+    box-shadow: 0 0 10px rgba(0,229,255,0.3);
+  }
+  .modal-body {
+    padding: 20px 24px 28px;
+    overflow-y: auto;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.85;
+    color: rgba(200,230,255,0.85);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .modal-body::-webkit-scrollbar { width: 4px; }
+  .modal-body::-webkit-scrollbar-track { background: transparent; }
+  .modal-body::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.3); border-radius: 4px; }
+
+  /* ── Bottom CTA bar ── */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(2,5,16,0.95);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(0,229,255,0.15);
+    box-shadow: 0 -1px 0 rgba(191,0,255,0.1), 0 -20px 40px rgba(0,0,0,0.5);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+  }
+  .btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 28px;
+    background: transparent;
+    border: 1px solid var(--cyan);
+    border-radius: 6px;
+    color: var(--cyan);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 14px rgba(0,229,255,0.2), inset 0 0 14px rgba(0,229,255,0.04);
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,229,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .btn-contact:hover {
+    box-shadow: 0 0 24px rgba(0,229,255,0.4), inset 0 0 24px rgba(0,229,255,0.08);
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(0,229,255,0.8);
+  }
+  .btn-contact:hover::before { opacity: 1; }
+
+  .btn-goback {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 28px;
+    background: transparent;
+    border: 1px solid rgba(191,0,255,0.5);
+    border-radius: 6px;
+    color: rgba(200,150,255,0.9);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 14px rgba(191,0,255,0.15), inset 0 0 14px rgba(191,0,255,0.04);
+    transition: all 0.2s;
+  }
+  .btn-goback:hover {
+    border-color: var(--purple);
+    box-shadow: 0 0 24px rgba(191,0,255,0.35), inset 0 0 24px rgba(191,0,255,0.08);
+    transform: translateY(-2px);
+    color: #d090ff;
+  }
+
+  /* ── Music Button ── */
+  .music-btn-wrap {
+    position: fixed;
+    bottom: 80px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .music-hint {
+    background: rgba(2,5,16,0.92);
+    border: 1px solid var(--cyan);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--cyan);
+    white-space: nowrap;
+    animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 14px rgba(0,229,255,0.3);
+    text-shadow: 0 0 8px rgba(0,229,255,0.6);
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.04); opacity: 0.8; }
+  }
+  @keyframes glow {
+    0%,100% { box-shadow: 0 0 10px rgba(0,229,255,0.4), 0 0 20px rgba(191,0,255,0.2); }
+    50%      { box-shadow: 0 0 22px rgba(0,229,255,0.8), 0 0 40px rgba(191,0,255,0.4); }
+  }
+  #musicBtn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid var(--cyan);
+    background: rgba(2,5,16,0.9);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(0,229,255,0.2);
+  }
+  #musicBtn.playing { animation: glow 2s ease-in-out infinite; }
+  .bars { display: flex; align-items: flex-end; gap: 2px; height: 16px; }
+  .bar { width: 3px; background: var(--cyan); border-radius: 2px; animation: bar 0.8s ease-in-out infinite; box-shadow: 0 0 4px var(--cyan); }
+  .bar:nth-child(1) { animation-delay: 0s; }
+  .bar:nth-child(2) { animation-delay: 0.2s; }
+  .bar:nth-child(3) { animation-delay: 0.4s; }
+  .bar:nth-child(4) { animation-delay: 0.1s; }
+  @keyframes bar {
+    0%,100% { height: 4px; }
+    50% { height: 14px; }
+  }
+
+  /* ── Animated background blobs ── */
+  .bg-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform, opacity;
+  }
+  .bg-blob-1 {
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(191,0,255,0.13) 0%, transparent 70%);
+    top: -160px; left: -160px;
+    animation: blob1 13s ease-in-out infinite alternate;
+  }
+  .bg-blob-2 {
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(0,229,255,0.09) 0%, transparent 70%);
+    bottom: 80px; right: -100px;
+    animation: blob2 16s ease-in-out infinite alternate;
+  }
+  .bg-blob-3 {
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(100,0,220,0.10) 0%, transparent 70%);
+    top: 45%; left: 38%;
+    animation: blob3 11s ease-in-out infinite alternate;
+  }
+  @keyframes blob1 {
+    0%   { transform: translate(0,0)   scale(1);    opacity: 0.7; }
+    50%  { transform: translate(40px,-30px) scale(1.08); opacity: 1; }
+    100% { transform: translate(-20px,40px) scale(0.94); opacity: 0.8; }
+  }
+  @keyframes blob2 {
+    0%   { transform: translate(0,0)   scale(1);    opacity: 0.6; }
+    50%  { transform: translate(-35px,25px) scale(1.06); opacity: 0.9; }
+    100% { transform: translate(25px,-35px) scale(0.96); opacity: 0.75; }
+  }
+  @keyframes blob3 {
+    0%   { transform: translate(0,0)   scale(1);    opacity: 0.5; }
+    50%  { transform: translate(20px,30px)  scale(1.1);  opacity: 0.85; }
+    100% { transform: translate(-30px,-20px) scale(0.92); opacity: 0.6; }
+  }
+
+  /* ── Home View ── */
+  #homeView, #faqView {
+    position: relative;
+    z-index: 1;
+  }
+  #homeView { animation: viewFadeIn 0.32s ease; }
+  #faqView  { animation: viewFadeIn 0.32s ease; }
+  @keyframes viewFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 4px;
+  }
+  @media (max-width: 580px) {
+    .home-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  }
+
+  .home-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 28px 14px 22px;
+    background: rgba(6,12,40,0.60);
+    border: 1px solid rgba(0,229,255,0.11);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.26s cubic-bezier(0.22,1,0.36,1);
+    backdrop-filter: blur(14px);
+    position: relative;
+    overflow: hidden;
+  }
+  .home-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,229,255,0.07), rgba(191,0,255,0.05));
+    opacity: 0;
+    transition: opacity 0.26s;
+    border-radius: inherit;
+  }
+  .home-card:hover {
+    border-color: rgba(0,229,255,0.45);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.45), 0 0 32px rgba(0,229,255,0.10);
+  }
+  .home-card:hover::after { opacity: 1; }
+  .home-card:active { transform: translateY(-2px); }
+
+  .home-card .icon-wrap {
+    width: 82px;
+    height: 82px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.26s;
+    position: relative;
+    z-index: 1;
+  }
+  .home-card:hover .icon-wrap {
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 24px rgba(0,229,255,0.18);
+  }
+
+  .home-card .label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(200,230,255,0.80);
+    text-align: center;
+    line-height: 1.3;
+    transition: color 0.22s;
+    position: relative;
+    z-index: 1;
+  }
+  .home-card:hover .label {
+    color: var(--cyan);
+    text-shadow: 0 0 10px rgba(0,229,255,0.55);
+  }
+
+  /* ── Back button ── */
+  #backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: transparent;
+    border: 1px solid rgba(0,229,255,0.28);
+    border-radius: 6px;
+    color: var(--text-dim);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 22px;
+    transition: all 0.2s;
+  }
+  #backBtn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 14px rgba(0,229,255,0.22);
+  }
+
+/* ensure container is above blobs */
+  .container { position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+
+<!-- Animated background blobs -->
+<div class="bg-blob bg-blob-1"></div>
+<div class="bg-blob bg-blob-2"></div>
+<div class="bg-blob bg-blob-3"></div>
+
+<div class="container">
+  <div class="header">
+    <img src="data:image/png;base64,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" alt="6BET" class="logo-img"/>
+    <h1>Frequently Asked Questions</h1>
+    <p>We compiled a list of answers to address your most pressing questions regarding our Services.</p>
+  </div>
+
+  <!-- HOME VIEW: Category selection grid -->
+  <div id="homeView">
+    <div class="home-grid">
+
+      <button class="home-card" onclick="showCategory('Account Concerns')">
+        <div class="icon-wrap">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="14" fill="#1A2E50"/>
+            <rect x="8" y="14" width="40" height="28" rx="5" fill="#2B4A80"/>
+            <rect x="12" y="18" width="32" height="20" rx="3" fill="#0E1E3A"/>
+            <circle cx="28" cy="25" r="6" fill="#5B9BD5"/>
+            <path d="M17 37 C17 31 22 28 28 28 C34 28 39 31 39 37" fill="#5B9BD5"/>
+            <rect x="22" y="42" width="12" height="2.5" rx="1.25" fill="#2B4A80"/>
+            <rect x="18" y="44" width="20" height="2" rx="1" fill="#2B4A80"/>
+          </svg>
+        </div>
+        <span class="label">Account Concerns</span>
+      </button>
+
+      <button class="home-card" onclick="showCategory('KYC')">
+        <div class="icon-wrap">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="14" fill="#3A1800"/>
+            <rect x="7" y="16" width="34" height="24" rx="5" fill="#7A3800"/>
+            <rect x="12" y="22" width="12" height="9" rx="2" fill="#F4A234" opacity="0.5"/>
+            <rect x="28" y="23" width="10" height="2" rx="1" fill="#FFD580"/>
+            <rect x="28" y="27" width="7" height="2" rx="1" fill="#FFD580" opacity="0.7"/>
+            <rect x="28" y="31" width="9" height="2" rx="1" fill="#FFD580" opacity="0.5"/>
+            <circle cx="41" cy="41" r="11" fill="#1D6B2E"/>
+            <path d="M35 41 l4 4 7-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="label">KYC</span>
+      </button>
+
+      <button class="home-card" onclick="showCategory('Promotions')">
+        <div class="icon-wrap">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="14" fill="#4A1000"/>
+            <rect x="9" y="28" width="38" height="20" rx="4" fill="#C0392B"/>
+            <rect x="7" y="21" width="42" height="9" rx="3" fill="#E74C3C"/>
+            <rect x="24" y="21" width="8" height="27" fill="#FFD700"/>
+            <rect x="7" y="23" width="42" height="5" fill="#FFD700"/>
+            <path d="M28 5 l2.5 7 7.5 0 -6 4.5 2.5 7.5 -6.5-4.5 -6.5 4.5 2.5-7.5 -6-4.5 7.5 0 z" fill="#FFD700"/>
+          </svg>
+        </div>
+        <span class="label">Promotions</span>
+      </button>
+
+      <button class="home-card" onclick="showCategory('Withdrawal')">
+        <div class="icon-wrap">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="14" fill="#0C2E20"/>
+            <rect x="9" y="9" width="38" height="38" rx="6" fill="#14503A"/>
+            <rect x="14" y="13" width="28" height="16" rx="3" fill="#081E14"/>
+            <rect x="16" y="18" width="24" height="2" rx="1" fill="#00C87A" opacity="0.9"/>
+            <rect x="16" y="22" width="17" height="2" rx="1" fill="#00C87A" opacity="0.6"/>
+            <rect x="14" y="32" width="13" height="3" rx="1.5" fill="#081E14"/>
+            <rect x="14" y="38" width="28" height="5" rx="2.5" fill="#081E14"/>
+            <path d="M36 31 L44 31 M40 27 L44 31 L40 35" stroke="#00C87A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="label">Withdrawal</span>
+      </button>
+
+      <button class="home-card" onclick="showCategory('Deposit')">
+        <div class="icon-wrap">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="14" fill="#0C2E10"/>
+            <rect x="7" y="17" width="38" height="26" rx="6" fill="#1A6B24"/>
+            <path d="M7 24 C7 20 9 17 12 17 L45 17 L45 29 L7 29 Z" fill="#22882A"/>
+            <rect x="30" y="20" width="15" height="12" rx="6" fill="#081E0A"/>
+            <circle cx="37" cy="26" r="5" fill="#2AC63A"/>
+            <path d="M37 23 V29 M34 26 H40" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+            <rect x="11" y="34" width="20" height="2.5" rx="1.25" fill="#22882A"/>
+            <rect x="11" y="38" width="14" height="2" rx="1" fill="#22882A" opacity="0.7"/>
+          </svg>
+        </div>
+        <span class="label">Deposit</span>
+      </button>
+
+      <button class="home-card" onclick="showCategory('Self Exclusion')">
+        <div class="icon-wrap">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="14" fill="#1A0B38"/>
+            <path d="M28 6 L46 15 L46 31 C46 42 38 49 28 53 C18 49 10 42 10 31 L10 15 Z" fill="#2C1260"/>
+            <path d="M28 10 L42 17 L42 31 C42 40 36 46 28 49 C20 46 14 40 14 31 L14 17 Z" fill="#3D1A80" stroke="#8B5CF6" stroke-width="1.2"/>
+            <circle cx="28" cy="25" r="5" fill="#A78BFA"/>
+            <path d="M19 38 C19 33 23 30 28 30 C33 30 37 33 37 38" fill="#A78BFA"/>
+          </svg>
+        </div>
+        <span class="label">Self Exclusion</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- FAQ VIEW: Search + category bar + FAQ cards (hidden initially) -->
+  <div id="faqView" style="display:none">
+    <button id="backBtn" onclick="showHome()">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+        <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      Back
+    </button>
+
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search questions..." oninput="renderFAQ()" />
+    </div>
+
+    <div class="categories" id="categories"></div>
+    <div class="faq-grid" id="faqGrid"></div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-category" id="modalCategory"></div>
+        <div class="modal-question" id="modalQuestion"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">&#x2715;</button>
+    </div>
+    <div class="modal-body" id="modalAnswer"></div>
+  </div>
+</div>
+
+<!-- Bottom Bar -->
+<div class="bottom-bar">
+  <a href="https://secure.livechatinc.com/licence/19362461/v2/open_chat.cgi?group=3" target="_blank" class="btn-contact">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+    Contact Us
+  </a>
+  <a href="https://www.6bet.com/" target="_blank" class="btn-goback">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M3 12h18M3 12l6-6M3 12l6 6"/>
+    </svg>
+    Go Back to 6BET
+  </a>
+</div>
+
+<!-- Music Button -->
+<div class="music-btn-wrap">
+  <div class="music-hint" id="musicHint">&#127925; Tap to play music</div>
+  <button id="musicBtn" onclick="toggleMusic()">
+    <svg id="muteIcon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#0079CA"/>
+      <path d="M23 9l-6 6M17 9l6 6" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <div class="bars" id="barsIcon" style="display:none">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+  </button>
+</div>
+
+<script>
+const FAQ_ITEMS = [
+  { question: `How to Play on 6BET`, category: `Account Concerns`, answer: `Getting started on 6BET is simple. First, log in to your account and verify your phone number using the OTP sent to your registered mobile number. Complete the KYC verification process by submitting the required valid identification documents. Ensure that your main wallet has sufficient funds before placing a bet; if needed, make a deposit to top up your balance.
+
+Once your account is verified and funded, browse the available game categories and select your preferred game or event. Enter your desired bet amount, review your selection, and confirm your wager. You can monitor the results in real time, and any winnings will be automatically credited to your wallet upon settlement.` },
+  { question: `How Do I Verify My Phone Number?`, category: `Account Concerns`, answer: `To verify your phone number, go to the Security Center and select Phone Verification. Enter your mobile number to request a One-Time Password (OTP). Once you receive the OTP, input it in the required field to complete the verification process.
+
+After successful verification, your phone number will be confirmed and linked to your account.` },
+  { question: `How Do I Log In to My Account?`, category: `Account Concerns`, answer: `To log in to your account, enter your registered username and password in the designated fields. For added convenience, you may select the "Remember Me" option to save your login details for future sessions.
+
+Before proceeding, please confirm that you are at least 21 years old and have read and agreed to the Terms of Use by ticking the required checkbox. Once completed, click "Log In" to access your account.` },
+  { question: `How Do I Change My Login Password?`, category: `Account Concerns`, answer: `You can reset your password using either your registered email address or mobile number.
+
+1. Via Email:
+Enter your registered username and email address. A system-generated password will be sent to your email. Use this password to log in, then update it to your preferred password from your account settings.
+
+2. Via Mobile Number:
+Enter your registered mobile number and request a One-Time Password (OTP). Input the OTP to verify your identity, then set and confirm your new password.
+
+For security purposes, ensure that you use the email address or mobile number linked to your 6BET account to successfully receive reset instructions.` },
+  { question: `How Do I Change My Transaction Password?`, category: `Account Concerns`, answer: `For security purposes, the transaction password can only be reset through Customer Support.
+
+To proceed with the request, you will be required to provide the following information:
+
+* Registered username
+* Registered mobile number
+* Registered email address
+* A valid government-issued ID
+* Latest deposit receipt (if applicable)
+
+Once your details have been successfully verified, a new transaction password will be generated and sent to your registered email address.` },
+  { question: `Does 6BET Ask for Passwords or OTP Codes?`, category: `Account Concerns`, answer: `No. 6BET will never request your account password, One-Time Password (OTP), or PIN codes under any circumstances.
+
+If anyone claims to request this information, please treat it as a scam attempt. For your security, do not share your login credentials or verification codes with anyone. We strongly recommend reporting any suspicious activity to Customer Support immediately.` },
+  { question: `How Do I Bind My E-Wallet or Bank Account?`, category: `Account Concerns`, answer: `To bind your E-Wallet or bank account, log in to your 6BET account and go to My Account or the Security Center. Select Bind E-Wallet or Bind Bank Account to proceed.
+
+Enter the required details based on your selected option:
+
+* E-Wallet (GCash or Maya): Provide the wallet number and the account name as verified in your KYC details.
+* Bank Account: Select your bank and enter the account name as registered in your KYC information.
+
+If you have not yet set a transaction password, you will be required to create one before continuing.
+
+Once all details are confirmed, click Confirm to save your information. You may bind up to three (3) E-Wallets and three (3) bank accounts. After successful binding, these accounts can be used for withdrawals.` },
+  { question: `How Can I Verify That I’m Speaking With an Official 6BET Representative?`, category: `Account Concerns`, answer: `The official website of 6BET is 6bet.com, and customer support is provided exclusively through official channels, such as the in-app customer support feature.
+
+For your safety, always ensure that you are communicating with support through the official 6BET app or website. Avoid engaging with any individuals or platforms that are not officially verified to prevent scams or fraudulent activity.` },
+  { question: `Is 6BET Available 24/7 for Online Gaming and Transactions?`, category: `Account Concerns`, answer: `Yes. 6BET provides 24/7 access to online gaming services, allowing users to play anytime.
+
+We support widely used deposit and withdrawal methods in the Philippines, including convenient e-wallet options such as GCash and Maya.
+
+All transactions are processed efficiently to ensure a smooth and seamless experience. Our reliable and accessible payment system is designed to provide convenience, security, and confidence for all players.` },
+  { question: `Can I Play 6BET While Abroad?`, category: `Account Concerns`, answer: `6BET is only accessible within the Philippines due to licensing and regulatory requirements.
+
+If you are outside the country, access to the platform will be restricted and the service will not be available.
+
+You may access your account and continue playing once you return to the Philippines.` },
+  { question: `How Do I Level Up My VIP Status?`, category: `Account Concerns`, answer: `To upgrade your VIP level, you must meet the required criteria, which may include minimum deposit amounts and total valid betting turnover.
+
+To view the specific requirements, log in to your account and navigate to the Member section. Select VIP Level next to your profile to access detailed information about your current VIP status, upgrade requirements, and the benefits available at each level.
+
+Once you meet the applicable requirements, your VIP level will be upgraded accordingly, allowing you to enjoy the corresponding rewards and privileges.` },
+  { question: `What Should I Do If I Cannot Log In?`, category: `Account Concerns`, answer: `If you are unable to log in to your account, please ensure that you are entering the correct username and password. Verify that your internet connection is stable and that your account has not been restricted or suspended.
+
+If you have forgotten your password, you may use the Forgot Password feature to reset your login credentials. If the issue persists, please contact Customer Support for further assistance and account verification.
+
+Our support team will help identify the cause of the issue and guide you through the necessary steps to restore access to your account.` },
+  { question: `Can I Change My Registered Mobile Number or Email Address?`, category: `Account Concerns`, answer: `Your registered mobile number cannot be changed once it has been linked to your account.
+
+However, you may request to update your registered email address by contacting Customer Support. For security and compliance purposes, all email update requests are subject to identity verification and account ownership confirmation.` },
+  { question: `How Do I Clear My App or Browser Cache?`, category: `Account Concerns`, answer: `You can clear your app or browser cache through your device or browser settings. Navigate to the Storage, Privacy, or Browsing Data section, then select the option to clear cached data.
+
+Clearing your cache can help resolve issues such as slow performance, loading errors, or outdated content. After clearing the cache, restart the app or browser and try accessing the platform again.` },
+  { question: `How Do I Know If My Account Is Frozen?`, category: `Account Concerns`, answer: `If your account is frozen, you may experience one or more of the following issues:
+
+* You are unable to log in to your account
+* Access to platform features is restricted
+* You are unable to place bets or complete transactions
+* A notification or error message appears when attempting to log in
+
+If you are unsure about your account status, please contact Customer Support through the Contact Us page for confirmation and assistance.` },
+  { question: `Why Was My Account Frozen or Disabled?`, category: `Account Concerns`, answer: `Your account may be frozen, suspended, or disabled for one or more of the following reasons:
+
+* Unusual or suspicious account activity
+* Pending security verification or account review
+* Underage registration
+* Self-exclusion requests
+* Violation of the platform’s Terms and Conditions
+* Compliance requirements under applicable regulatory standards, including PAGCOR regulations
+
+If your account has been restricted, please contact Customer Support through the Contact us page for further assistance. Our team can provide additional information regarding your account status.` },
+  { question: `What Happens If My Account Is Frozen Due to Underage Registration?`, category: `Account Concerns`, answer: `If an account is found to have been registered by a user who does not meet the legal age requirement, it will remain permanently disabled.
+
+This policy is strictly enforced in compliance with PAGCOR regulations. Access cannot be restored unless the user meets the required legal eligibility criteria.` },
+  { question: `What Should I Do If I Violated the Platform Terms?`, category: `Account Concerns`, answer: `If your account has been frozen or restricted due to a violation of the platform’s Terms and Conditions, you should first review the applicable policies to better understand the reason for the action taken.
+
+You may then contact Customer Support for clarification and assistance. If requested, please cooperate fully with any compliance checks, account reviews, or verification procedures.
+
+All cases are subject to internal review, and final decisions will be made in accordance with the platform’s policies and PAGCOR regulatory requirements.` },
+  { question: `Why Is PAGCOR Compliance Important for My Account Status?`, category: `Account Concerns`, answer: `Compliance with the regulations of the Philippine Amusement and Gaming Corporation (PAGCOR) is essential to maintaining a secure, fair, and legally compliant gaming environment.
+
+These requirements help ensure that all accounts adhere to established standards, including identity verification, responsible gaming practices, and fraud prevention measures. Compliance also protects both players and the platform by promoting transparency, security, and regulatory integrity.
+
+Failure to meet PAGCOR requirements may result in account restrictions, suspension, or other actions as required by applicable regulations.` },
+  { question: `What Should I Do If I Did Not Receive the Verification Code?`, category: `Account Concerns`, answer: `Please ensure the following:
+
+* Your registered mobile number is correct
+* Your device has a stable network connection
+* SMS messages are not blocked or filtered
+
+If you still do not receive the verification code, please wait a few minutes and try again. If the issue persists, contact Customer Support for further assistance.` },
+  { question: `How Do I Complete KYC Verification?`, category: `KYC`, answer: `To complete your KYC (Know Your Customer) verification, enter the mobile number registered to your account and request a verification code. Once you receive the code, enter it in the designated field to proceed.
+
+Next, provide all required KYC information and ensure that the details submitted are accurate, complete, and match your supporting documents.
+
+After submitting your information, please allow time for the verification process to be completed. You will be notified once your KYC application has been reviewed and processed.` },
+  { question: `Why Do I Need to Complete KYC Verification?`, category: `KYC`, answer: `KYC (Know Your Customer) verification is required to enhance account security, prevent fraud, and ensure compliance with applicable regulatory requirements.
+
+Completing KYC verification helps protect your account, supports responsible gaming practices, and enables the platform to comply with PAGCOR regulations and other legal obligations. This process also helps maintain a safe, secure, and fair gaming environment for all users.` },
+  { question: `How Long Does the KYC Verification Process Take?`, category: `KYC`, answer: `The KYC verification process time may vary depending on the volume of requests and the completeness of submitted information.
+
+Once all required details and documents are correctly provided, your application will be reviewed and processed as soon as possible. You will be notified once the verification has been completed.` },
+  { question: `Why Was My KYC Verification Rejected?`, category: `KYC`, answer: `Your KYC verification may be rejected for several reasons, including but not limited to:
+
+* Blurry or unclear documents
+* Incorrect or incomplete personal information
+* Expired identification documents
+* Mismatch between account details and submitted documents
+* Failure to meet PAGCOR compliance requirements
+
+Please review your submitted information carefully and ensure all details and documents are accurate before resubmitting your application.` },
+  { question: `Is My Personal Information Secure?`, category: `KYC`, answer: `Yes. All personal information and submitted documents are securely processed and protected in accordance with applicable data privacy laws and regulatory standards.
+
+The information collected is used solely for identity verification, account security, and compliance purposes, ensuring a safe and trustworthy user experience.` },
+  { question: `What Should I Do If My KYC Verification Is Still Pending?`, category: `KYC`, answer: `If your KYC verification remains pending for an extended period, please allow additional time for processing, as review times may vary depending on application volume and verification requirements.
+
+If the status does not update after a reasonable period, please contact Customer Support for assistance and further updates on your verification progress.` },
+  { question: `Is KYC Verification Required by PAGCOR?`, category: `KYC`, answer: `Yes. In compliance with the requirements of the Philippine Amusement and Gaming Corporation (PAGCOR), users may be required to complete KYC (Know Your Customer) verification to confirm their identity.
+
+This process helps ensure a secure, transparent, and responsible gaming environment while supporting regulatory compliance and fraud prevention measures.` },
+  { question: `What Documents Are Required for KYC Verification?`, category: `KYC`, answer: `For KYC (Know Your Customer) verification, you may be required to submit a valid government-issued identification document, such as:
+
+* Passport
+* Driver’s License
+* Postal ID
+* Voter’s ID
+* Barangay ID (showing date of birth)
+* TIN ID
+* PhilHealth ID (showing date of birth)
+* National ID
+* Seaman’s Passport
+* NBI Clearance
+* Foreign National ID
+* SSS ID (showing date of birth)
+* Senior Citizen Card
+
+Additionally, you may also be required to provide a selfie while holding your valid ID to comply with PAGCOR verification standards and ensure account security.` },
+  { question: `Why Do I Need to Provide Accurate Personal Information?`, category: `KYC`, answer: `Providing accurate personal information is essential for successful KYC (Know Your Customer) verification. It helps protect your account, prevent fraud, and ensure compliance with regulatory requirements.
+
+Accurate details are also necessary to meet PAGCOR regulations and responsible gaming policies, ensuring a secure, transparent, and trustworthy gaming environment for all users.` },
+  { question: `Can I Use Someone Else’s ID or Information for KYC Verification?`, category: `KYC`, answer: `No. All information and documents submitted for KYC (Know Your Customer) verification must belong to the registered account holder.
+
+Using another person’s identity or documents may result in verification failure, account restrictions, or permanent account closure in accordance with platform policies and regulatory requirements.` },
+  { question: `What Happens If I Do Not Complete My KYC Verification?`, category: `KYC`, answer: `Accounts with incomplete KYC (Know Your Customer) verification may have limited access to certain features, including deposits, withdrawals, or full account functionality.
+
+To ensure uninterrupted access to all platform services, users are encouraged to complete the verification process as required. Some features may remain restricted until KYC verification is successfully completed.` },
+  { question: `Can I Submit Expired Identification Documents for KYC Verification?`, category: `KYC`, answer: `No. Only valid and non-expired government-issued identification documents are accepted for KYC verification.
+
+Please ensure that your submitted ID is clear, complete, and currently valid to avoid delays or rejection during the verification process.` },
+  { question: `What Is KYC in Online Casino Gaming?`, category: `KYC`, answer: `KYC (Know Your Customer) is a standard verification process used in online casino gaming to confirm the identity of players.
+
+This process helps prevent fraud, underage gambling, money laundering, and unauthorized account use, while ensuring compliance with regulatory requirements and promoting a safe and secure gaming environment.` },
+  { question: `Is KYC Verification Mandatory?`, category: `KYC`, answer: `Yes. KYC (Know Your Customer) verification is required for most licensed online gaming platforms.
+
+It is typically necessary before users can process withdrawals, recover accounts, or access certain platform features. This requirement ensures compliance with regulatory standards and helps maintain a secure and responsible gaming environment.` },
+  { question: `Can I Continue Playing While Verification Is Pending?`, category: `KYC`, answer: `In many cases, you may continue to access and play on the platform while your KYC (Know Your Customer) verification is pending.
+
+However, certain features such as withdrawals and other account-related functions may remain restricted until the verification process is fully completed.` },
+  { question: `Why Does 6BET Request a Selfie With My ID?`, category: `KYC`, answer: `A selfie with your ID is required as part of the identity verification process to confirm that the account holder matches the submitted identification document.
+
+This additional step helps prevent identity fraud, ensures account security, and supports compliance with regulatory and platform verification standards.` },
+  { question: `Can KYC Affect Self-Exclusion Requests?`, category: `KYC`, answer: `Yes. KYC (Know Your Customer) verification may be required before processing self-exclusion or other responsible gaming requests.
+
+This ensures that the request is properly authenticated and applied to the correct account, in line with platform policies and regulatory requirements.` },
+  { question: `What Should I Do If the Upload Page Is Not Working?`, category: `KYC`, answer: `If you are unable to upload documents, please try the following troubleshooting steps:
+
+* Refresh the page
+* Clear your browser cache
+* Switch to a different browser or device
+* Ensure your file size meets the required limit
+* Try uploading again after a few minutes
+
+If the issue persists, please contact Customer Support for further assistance.` },
+  { question: `Why Is Accurate Information Important During KYC?`, category: `KYC`, answer: `Providing accurate information during KYC (Know Your Customer) verification is essential to ensure a smooth and secure verification process.
+
+It helps support faster approval, secure withdrawals, account protection, and compliance with gaming regulations.
+
+Submitting false or misleading information may result in delays, verification failure, account restrictions, or permanent closure in accordance with platform policies.` },
+  { question: `How Can I Change My ID Verification and Photo?`, category: `KYC`, answer: `Once your KYC (Know Your Customer) documents and selfie/photo have been submitted and approved, they cannot typically be changed or edited due to security and regulatory compliance requirements.
+
+If your verification was rejected or requires updates, you may be allowed to resubmit the correct or updated documents for review. Please ensure all information and images meet the required standards before resubmission.` },
+  { question: `Get New Member Package - Total Up to 7,010`, category: `Promotions`, answer: `📌Register Reward
+New players will receive a registration bonus upon successful account creation.
+
+Reward:
+💰P5 Register Bonus
+
+No deposit required.
+Bonus will be credited after successful registration
+
+📌Invite Friends Reward
+Invite your friends to join 6BET and start earning real rewards. Once your invited friend becomes a valid user, you will receive:
+💰A cash reward (based on your reward tier)
+Check and claim your rewards in the Invite Friends - Rewards Page
+
+💰 1. New Member First Deposit Bonus– Up to P1000
+Recharge and receive an additional First Deposit Bonus, distributed over 3 days.
+Install structured bonus table as provided:.  
+
+A 5x wagering requirement on the bonus must be met before any withdrawal is allowed.
+Day  1 Instant Bonus released after successful recharge.
+
+🔥 3 New Member 3-Day Cashback – Up to ₱2,000 Per Day
+For the first 3 days after first deposit:
+Up to 1% cashback
+Daily maximum: ₱2,000
+Cashback calculated based on valid betting turnover
+Cashback credited daily
+Total possible cashback over 3 days: Up to ₱6,000
+
+📦 Total Package Breakdown
+Item  Max Reward
+Register bonus: ₱5
+Invite Reward: Tier based rewards
+First Deposit Bonus  ₱1,000
+3-Day Cashback  ₱6,000
+Total Max Package  Up to ₱7,005+
+📌 Important Notes
+Applicable to new members only
+Bonuses may be subject to turnover requirements
+Cashback applies to valid bets only
+Platform reserves final interpretation rights` },
+  { question: `Beginner's Guide - Complete 16 Missions & Unlock Rewards`, category: `Promotions`, answer: `Start your journey with our 16-Step Beginner Mission and unlock rewards as you progress.
+
+New players can complete a series of missions designed to help you explore the platform and understand its features. Each completed mission increases your total reward progress.
+
+🎁 Reward Structure
+Complete 1 mission to unlock ₱1,000 reward progress
+A total of 16 missions are available
+Complete all 16 missions to unlock ₱16,000 cumulative reward
+
+Rewards increase step-by-step as you complete missions.
+
+📊 Reward Progress Example
+
+Your reward progress increases with every completed mission:
+
+Mission 1 completed → ₱1,000 progress
+Mission 2 completed → ₱2,000 progress
+Mission 3 completed → ₱3,000 progress
+...
+Mission 16 completed → ₱16,000 total reward
+
+💰 Reward Claim
+Once all 16 missions are completed, the full accumulated reward of ₱16,000 will be credited directly to your account.
+
+⚙️ How It Works
+
+Missions must be completed in sequence
+Completing a mission unlocks the next mission
+Each completed mission increases your reward progress
+The full reward becomes available only after completing all 16 missions
+
+⚠️ Important Notes
+
+Missions must be completed in the order specified by the system.
+Each completed mission increases the cumulative reward by ₱1,000.
+The ₱16,000 cumulative reward will only be credited after all 16 missions are completed.
+If the missions are not fully completed, accumulated reward progress cannot be claimed.
+All mission completions are based on system data records.
+Any abnormal behavior (including multiple accounts, abuse of the system, or fraudulent activity) may result in disqualification and cancellation of rewards.
+This promotion is available only to eligible players who comply with platform rules.
+The company reserves the right to interpret, modify, or terminate this promotion if necessary.` },
+  { question: `Daily Slot Rebates Up to 1% Back Every Day`, category: `Promotions`, answer: `Daily Slot Rebate Promo
+
+Players can earn daily slot rebates up to 1% based on their total valid slot betting each day.
+
+💰 Rebate Rates
+Daily Valid Bet        Rebate
+1 – 999        0.30%
+1,000 – 4,999        0.40%
+5,000 – 9,999        0.55%
+10,000 – 29,999        0.70%
+30,000 – 99,999        0.85%
+100,000+        1.00%
+
+Higher betting volume = higher rebate percentage.
+
+⏰ Rebate Release
+Calculated daily
+Automatically credited at 12:00 AM
+Given as bonus credits
+Bonus credits require wagering before withdrawal
+🌟 VIP Benefits
+
+VIP members can enjoy:
+
+VIP growth rewards
+Exclusive upgrade bonuses
+1 Lucky Wheel spin every VIP level upgrade
+
+Unused lucky wheel spins may auto-spin after a set period.
+
+✅ Valid Wagers Only
+
+The following are NOT included:
+
+Free spins
+Buy Feature / bonus rounds
+Promo or bonus-generated bets
+
+Only normal slot gameplay counts.
+
+⚠️ Important Rules
+Applies only to slot games
+Rebates do not count toward affiliate or other promo calculations
+Abnormal betting or abuse may lead to disqualification
+Platform has final decision rights` },
+  { question: `Play & Catch Angpao Rain - Win Up to P100,000`, category: `Promotions`, answer: `Join Now!
+Don’t miss out — 4 Angpao Rain sessions daily!
+ Play now and catch your lucky rewards.
+
+🎰 Play & Catch Angpao Rain — Win up to ₱100,000!
+Get ready for our exciting Angpao Rain Daily Draw!
+ Place your bets and catch lucky rewards throughout the day.
+
+📅 Event Time
+🕛 12:00 PM
+🕒 3:00 PM
+🕕 6:00 PM
+🕘 9:00 PM
+👉 4 chances daily to win!
+Make sure you are playing before each draw to join the Angpao Rain.
+🎯 How to Participate
+Place at least ₱50 valid slot bets
+You will receive Angpao draw chances
+Catch lucky rewards during each Angpao Rain session
+
+🏆 Rewards
+🎁 Everyone Gets a Reward
+ Every qualified player will receive an Angpao reward.
+🎉 Grand Prize: ₱100,000
+Multiple prizes will be randomly distributed during each draw.
+
+⭐ Important Notes
+Only valid slot bets will be counted
+Minimum ₱50 valid bet required to participate
+Rewards are distributed randomly during each draw
+The more you play, the higher your chances to win` },
+  { question: `Millionaire Milestone Rewards - Unlock up to P999k in Bonuses`, category: `Promotions`, answer: `Weekly Million Rush · Personal Million Milestones
+Unlock up to P999k in Bonuses
+
+Play your favorite slot games and reach milestone levels to unlock exciting rewards.
+The more you play, the more bonuses you can claim!
+
+How to Participate
+Play slot games on 6BET
+Accumulate valid slot betting turnover
+Reach milestone targets to unlock rewards
+
+Every milestone reached will unlock a bonus reward automatically
+
+Event Rules
+Only valid slot bets are counted
+Rewards can be claimed once milestones are completed. 
+Milestones must be completed within the event period
+Bonuses will be credited to the Reward Center
+
+Start Playing Now
+Spin your favorite slot games, climb the milestones, and unlock Millionaire Milestone Rewards!` },
+  { question: `Earn Daily with our New Agent Program`, category: `Promotions`, answer: `We are excited to introduce our Official Agent Program!
+Invite friends and start earning real rewards every day.
+
+🎁 What You Get
+Earn up to ₱200 per successful invite
+Get 1% daily commission from your referrals’ deposits
+Enjoy betting rebates from your team’s wagers
+
+📊 Invite Rewards Table
+Invites	Reward per User
+1–9			₱77
+10–99			₱88
+100–299		₱99
+300–499		₱111
+500–999		₱128
+1000–4999		₱150
+5000+		₱200
+
+🚀 How It Works
+Share your unique invite link or code
+Your friends register and complete deposit + betting
+Start earning instantly — no limits!
+
+📌 Valid User Requirements
+Deposit more than ₱200
+Place bets more than ₱200
+Each user is counted once only
+
+⚠️ Important Notes
+Only valid users will be counted
+Rewards are credited automatically on a daily basis.
+Any form of fraud, duplicate registration, abuse or suspicious activity will result in disqualification.
+All results are subject to system verification and internal validation standards.
+Any accounts identified as irregular, duplicated, or inconsistent with normal user behavior may not qualify for rewards.
+The platform reserves the right to review and verify all users and activities to ensure fairness and compliance.
+The platform’s validated results shall be final
+
+🔥 Invite more, earn more — up to ₱200 per user!
+👉 Join the Agent Program today and start building your income!` },
+  { question: `What promotions does 6BET offer?`, category: `Promotions`, answer: `6BET offers a variety of player promotions designed for both new and existing users, including:
+
+🎁 New Member Package – Total rewards up to ₱7,010
+📘 Beginner’s Guide Missions – Complete 16 missions and unlock rewards
+🎰 Daily Slot Rebates – Up to 1% cashback daily
+🧧 Angpao Rain Event – Win up to ₱100,000 in random rewards
+💰 Millionaire Milestone Rewards – Unlock up to ₱999,000 in bonus rewards
+🤝 New Agent Program – Earn daily commissions by referring and building your agent network` },
+  { question: `Do I need to deposit to receive the registration bonus?`, category: `Promotions`, answer: `No deposit is required.
+
+Once your account is successfully created, the ₱5 registration bonus will be automatically credited to your account.` },
+  { question: `How does the Invite Friends Reward work?`, category: `Promotions`, answer: `You can earn rewards by inviting friends to join 6BET.
+
+* Rewards are credited once your invited friend becomes a valid user
+* You will receive a cash reward based on your referral tier
+* Reward details can be viewed and claimed through the Invite Friends – Rewards Page
+* The reward amount varies depending on your referral level` },
+  { question: `What is the First Deposit Bonus?`, category: `Promotions`, answer: `New members who complete their first deposit are eligible to receive a bonus of up to ₱1,000.
+
+* The bonus will be credited within 3 days after a successful first deposit
+* Distribution is subject to the applicable promotional terms and conditions
+* Wagering requirements must be met before the bonus can be withdrawn` },
+  { question: `What is the wagering requirement?`, category: `Promotions`, answer: `A 5x wagering requirement applies to all bonus amounts.
+
+This means you must place qualifying bets totaling 5 times the bonus value before any winnings derived from the bonus become eligible for withdrawal.` },
+  { question: `What is the 3-Day Cashback?`, category: `Promotions`, answer: `New users who complete their first deposit are eligible to receive cashback for the first 3 consecutive days.
+
+* Up to 1% cashback per day
+* Maximum cashback of ₱2,000 per day
+* Total potential cashback of up to ₱6,000 over 3 days
+* Calculated based on valid betting turnover
+* Cashback is credited daily to the user’s account` },
+  { question: `What does “valid betting turnover” mean?`, category: `Promotions`, answer: `Valid betting turnover refers to wagers placed on eligible games that meet the platform’s promotion requirements. Only qualified bets that comply with the terms and conditions are counted toward cashback and other promotional calculations.` },
+  { question: `Who is eligible for this promotion?`, category: `Promotions`, answer: `This promotion is exclusively available to newly registered members who have successfully completed their first deposit, where applicable, in accordance with the promotion’s terms and conditions.` },
+  { question: `Can I withdraw the bonus immediately?`, category: `Promotions`, answer: `No. Bonus funds cannot be withdrawn immediately upon receipt.
+
+All bonus funds, as well as any winnings generated from those bonus funds, are subject to the applicable wagering requirements and promotional terms. These requirements must be fully completed before the bonus balance and any associated winnings become eligible for withdrawal.` },
+  { question: `Can promotion terms change?`, category: `Promotions`, answer: `Yes. 6BET reserves the right to modify, amend, suspend, cancel, or interpret any promotion, bonus offer, or related terms and conditions at its sole discretion and without prior notice.
+
+Any changes will become effective immediately upon publication unless otherwise stated. By participating in a promotion, players agree to be bound by the most current version of the applicable promotional terms and conditions. We encourage all players to review promotion details regularly to stay informed of any updates or changes.` },
+  { question: `How do I participate in the Beginner Missions?`, category: `Promotions`, answer: `Eligible new players are automatically enrolled in the Beginner Mission program once they meet the applicable participation requirements. No separate registration is required.
+
+To get started, simply log in to your account and begin completing the available missions in the designated sequence. Each mission must be completed according to its specific requirements before progressing to the next one. Be sure to review the mission details and terms to understand the rewards, eligibility criteria, and any conditions that may apply.` },
+  { question: `Do I need to complete the 16 missions in order?`, category: `Promotions`, answer: `Yes. All 16 Beginner Missions must be completed in the designated sequence. Missions cannot be skipped, and each mission will only become available after the previous one has been successfully completed.
+
+This structured progression is designed to guide players through the program step by step. To continue earning rewards and advancing through the Beginner Missions, be sure to complete each mission according to its specific requirements and conditions.` },
+  { question: `What rewards can I earn from this Beginner missions promotion?`, category: `Promotions`, answer: `Players can earn cumulative reward progress of up to ₱16,000 through the Beginner Missions program. Each successfully completed mission contributes ₱1,000 toward the total reward progress, allowing players to steadily accumulate rewards as they advance through the promotion.
+
+To maximize your reward progress, complete all missions in the required sequence and ensure that all mission-specific requirements are met. Please refer to the promotion terms and conditions for full details regarding eligibility, reward distribution, and any applicable restrictions.` },
+  { question: `When can I claim my reward in Beginner Missions?`, category: `Promotions`, answer: `The full ₱16,000 reward becomes available only after all 16 Beginner Missions have been successfully completed. Rewards cannot be claimed or withdrawn on a partial basis, and accumulated reward progress will remain pending until the entire mission sequence has been finished.
+
+To qualify for the reward, players must complete each mission in the required order and satisfy all applicable mission requirements. Once all 16 missions have been successfully completed, the full reward will become eligible for claiming, subject to the promotion's terms and conditions.` },
+  { question: `What happens if I do not complete all missions?`, category: `Promotions`, answer: `If you are unable to complete all 16 missions, your accumulated reward progress will not be eligible for claiming or withdrawal. The mission system is designed to require full completion to unlock the corresponding rewards, meaning partial progress alone will not qualify for payout.
+
+We recommend completing all missions within the designated period to ensure you can successfully claim the full rewards once all requirements are met.` },
+  { question: `Are there any restrictions or rules I should be aware of in this Beginner Missions?`, category: `Promotions`, answer: `If all 16 missions are not completed, the accumulated reward progress will not be eligible for claiming or withdrawal. Partial completion does not qualify for reward redemption, as the system requires full mission completion to unlock the accumulated benefits. We recommend completing all missions within the specified period to ensure you can successfully claim your rewards without restrictions.` },
+  { question: `Can I complete missions faster or skip steps?`, category: `Promotions`, answer: `No. Missions must be completed strictly in the sequence defined by the system. Each mission is designed to be completed in order, and progress will only be unlocked once the preceding steps have been successfully finished.
+
+Skipping, bypassing, or accelerating missions outside the intended sequence is not permitted. This structure ensures proper tracking of progress and fair participation for all users.` },
+  { question: `How can I check my eligible rebate amount?`, category: `Promotions`, answer: `Your eligible rebate amount is automatically calculated based on your total valid slot wagers placed within the day. There is no need for manual computation, as the system applies the rebate rules automatically according to your wagering activity.
+
+Once the rebate has been credited, it will be reflected in your account history. You may review the updated amount after 12:00 AM daily, when the system completes its end-of-day processing and updates all eligible rewards.` },
+  { question: `Why didn’t I receive a rebate for a specific day?`, category: `Promotions`, answer: `There are several possible reasons why a rebate may not have been credited for a particular day:
+
+* No valid slot wagers were placed during that period
+* Bets were made on non-eligible games or bet types
+* Total wagering activity did not meet the minimum qualifying threshold for rebates
+
+Please ensure that your gameplay meets the promotion’s eligibility requirements to qualify for daily rebates.` },
+  { question: `Can I withdraw my rebate immediately after it is credited?`, category: `Promotions`, answer: `No. Rebates are credited as bonus funds and are subject to wagering requirements before they can be withdrawn. This means you must first meet the specified wagering conditions set by the platform.
+
+Once the required wagering turnover has been fully completed, the rebate and any associated winnings will become eligible for withdrawal, subject to standard account verification and withdrawal processing rules.` },
+  { question: `Will winnings from rebate-funded gameplay be withdrawable?`, category: `Promotions`, answer: `Yes. Winnings generated from rebate-funded gameplay can be withdrawn once all applicable wagering requirements tied to the bonus credits have been fully completed.
+
+This means that while the rebate itself and any winnings derived from it are initially subject to wagering conditions, they will become eligible for withdrawal after the required turnover has been satisfied in accordance with the platform’s rules.
+
+Please note that standard account verification procedures and general withdrawal policies still apply. Compliance with these requirements ensures a smooth and secure processing of your withdrawal request.` },
+  { question: `Will bonus abuse or irregular betting affect my eligibility?`, category: `Promotions`, answer: `Yes. The platform actively monitors all gameplay and promotional activity to ensure fair use. Any form of bonus abuse, irregular betting patterns, or attempts to exploit the promotion system may lead to immediate disqualification from the promotion.
+
+In such cases, any associated rewards, rebates, or winnings may be forfeited in accordance with the platform’s terms and conditions. These measures are in place to maintain a fair, secure, and transparent environment for all users.` },
+  { question: `Do I need to register separately to join the Angpao Rain event?`, category: `Promotions`, answer: `No separate registration is required. Eligible players are automatically included in the event once they participate within the promotion period and meet the required conditions. The system will track qualifying activity based on your account, so no additional sign-up steps are needed.` },
+  { question: `How do I know if I have qualified for a draw session of Angpao Rain event?`, category: `Promotions`, answer: `Qualification is determined automatically based on your valid betting activity during the promotion period. Once your activity meets the required conditions, your account is marked as eligible for upcoming draw sessions.
+
+There is no manual application or confirmation needed. Instead, the system continuously processes and records qualifying activity either in real time or through scheduled updates, so eligibility is reflected automatically in your account status.` },
+  { question: `Are all games included in the Angpao Rain event?`, category: `Promotions`, answer: `No. Only selected slot games that are designated as eligible for the promotion will count toward the Angpao Rain event.
+
+Bets placed on non-eligible games or other game categories may not contribute to qualification. Players are advised to refer to the official promotion details or the designated eligible game list to ensure that their gameplay qualifies.` },
+  { question: `What happens if I place bets outside the draw time?`, category: `Promotions`, answer: `Only bets placed within the official event schedule will be counted toward the corresponding draw session.
+
+Any gameplay or bets placed outside the designated time period will not be included in that round’s qualification, even if they meet the minimum betting requirements.` },
+  { question: `Is there a limit to how many times I can win in Angpao Rain?`, category: `Promotions`, answer: `Winning opportunities depend on the specific mechanics of the Angpao Rain event. In general, eligible players may be able to win multiple times across different draw sessions.
+
+However, all rewards are subject to the promotion’s official rules, including fairness controls and any applicable limits that may be set for the event.` },
+  { question: `When will rewards be credited?`, category: `Promotions`, answer: `Rewards are typically credited after each draw session, following the platform’s standard processing time.
+
+In most cases, winnings are distributed shortly after the draw. However, some rewards may require additional verification or system processing and could take longer to reflect in your account.` },
+  { question: `Can I participate Angpao Rain draw using bonus funds?`, category: `Promotions`, answer: `Participation eligibility depends on the type of funds used for betting. In many cases, only real-money wagers are counted toward qualification for the Angpao Rain event, while bonus funds may be subject to specific restrictions.
+
+For accurate details, please refer to the full promotion terms and conditions, as fund eligibility rules may vary depending on the event setup.` },
+  { question: `What should I do if my angpao rewards is missing or delayed?`, category: `Promotions`, answer: `If your reward has not been credited within the expected timeframe, please contact customer support for assistance.
+
+Kindly provide your account details, relevant transaction history, and any applicable session information so the support team can properly review and resolve your concern as quickly as possible.` },
+  { question: `How do I make a deposit on 6bet?`, category: `Deposit`, answer: `To make a deposit, go to your homepage and click the “Deposit” button. From there, select your preferred payment method and enter the amount you wish to deposit. If there are any available promotions, you may choose one before proceeding. Once ready, click “Submit” to continue.
+
+You will then be redirected to your selected payment provider to complete the transaction securely. After successful payment, your deposit will be credited to your account based on the processing time of your chosen method.` },
+  { question: `What should I do if my deposit is not credited to my account?`, category: `Deposit`, answer: `If your deposit has not been reflected in your account after a few minutes, first check with your payment provider to confirm that the transaction was successfully completed and not pending or failed.
+
+If the payment has been confirmed on your end, please reach out to customer support for further assistance. Be sure to provide a clear screenshot or copy of your transaction receipt, along with your account username and any relevant transaction details. This will help the support team locate and verify your payment more efficiently.
+
+Once your details have been reviewed and confirmed, your deposit will be credited accordingly.` },
+  { question: `Is there a minimum and maximum deposit limit?`, category: `Deposit`, answer: `Yes, the minimum and maximum deposit limits depend on the payment method you choose. Each method may have its own specific transaction range.
+
+You can view the exact limits for your selected payment option directly on the Deposit page before confirming your transaction. This ensures you are aware of any restrictions and can choose the method that best fits your preferred deposit amount.` },
+  { question: `How long does it take for a deposit to reflect in my account?`, category: `Deposit`, answer: `In most cases, deposits are credited to your account instantly once the transaction is successfully completed. However, processing times may vary depending on the selected payment method, banking procedures, or network congestion.
+
+In some instances, it may take a few minutes for the funds to appear in your account. If your deposit has not been reflected after a reasonable waiting period, please contact Customer Service for assistance. Be sure to include your registered username and a screenshot or copy of your successful transaction receipt so the team can promptly verify and assist with your concern.` },
+  { question: `What payment methods are available for deposits?`, category: `Deposit`, answer: `6Bet supports a variety of convenient payment options to make deposits easier for users. These typically include e-wallets, online banking, and QR-based payment methods.
+
+The exact available options may vary, and you can view the full list of supported payment methods directly on the Deposit page before making a transaction. Each option will also display any applicable limits and processing details.` },
+  { question: `Are there any fees for making a deposit?`, category: `Deposit`, answer: `6Bet does not charge any fees for making deposits on the platform. This means the full amount you choose to deposit will be credited to your account.
+
+However, please note that your selected payment provider or bank may apply their own transaction fees depending on their policies and the payment method used. These charges are determined by the third-party service provider and are beyond 6Bet’s control.
+
+We recommend checking with your bank or payment provider if you are unsure about any applicable fees before completing your transaction.` },
+  { question: `Why was my deposit declined?`, category: `Deposit`, answer: `A deposit may be declined for several reasons, including insufficient funds in your account, incorrect payment details entered during the transaction, or restrictions imposed by your bank or payment provider. In some cases, temporary system issues or maintenance from the payment provider may also cause the transaction to fail.
+
+If your deposit is declined, we recommend reviewing your payment details and ensuring that your account has sufficient balance before trying again. If the issue persists, please contact Customer Support for further assistance, and provide relevant transaction details so the team can help identify and resolve the issue promptly.` },
+  { question: `Can I cancel a deposit after submitting it?`, category: `Deposit`, answer: `Once a deposit request has been submitted and processed, it generally cannot be canceled. This is because transactions are handled immediately by the payment provider to ensure fast and secure processing.
+
+We strongly recommend carefully reviewing all transaction details—such as the payment method, amount, and account information—before confirming your deposit. If you believe there has been an error or you encounter any issues, please contact Customer Support as soon as possible for assistance.` },
+  { question: `Is my payment information secure?`, category: `Deposit`, answer: `Yes, your payment information is fully protected. All transactions are secured using advanced encryption technology and industry-standard security measures to ensure that your personal and financial data remain safe at all times.
+
+We are committed to maintaining a secure payment environment and safeguarding user information throughout every transaction.` },
+  { question: `Can I claim a promotion when making a deposit?`, category: `Deposit`, answer: `Yes, eligible promotions can be claimed during the deposit process, provided they meet the specific requirements of the offer. When making a deposit, you may be given the option to select an available promotion before completing your transaction.
+
+We strongly recommend reviewing the terms and conditions of each promotion carefully, as eligibility criteria, wagering requirements, and validity periods may apply. This ensures you fully understand how the bonus works and can make the most of any available offers.` },
+  { question: `What should I do if I entered the wrong deposit amount?`, category: `Deposit`, answer: `If you notice that an incorrect deposit amount has been entered and the transaction has not yet been completed, you may be able to cancel or modify it directly through your payment provider, depending on their policies.
+
+However, if the transaction has already been processed, please contact Customer Support immediately for assistance. Be sure to provide your account details and transaction information so the team can review your case and advise you on the appropriate next steps.` },
+  { question: `Why is my deposit still pending?`, category: `Deposit`, answer: `Your deposit may remain pending due to additional processing time required by certain payment methods or banking networks. Some transactions need extra verification or clearing time before they are reflected in your account.
+
+If your deposit is still pending beyond the expected timeframe, please contact Customer Support for assistance. Kindly provide your registered username along with a screenshot or copy of your successful transaction receipt so the team can review and help resolve the issue as quickly as possible.` },
+  { question: `What should I do if I made a duplicate QR payment but only one was credited?`, category: `Deposit`, answer: `If you accidentally made two payments using the same QR code and only one transaction has been credited, please note that the uncredited payment may still be under review or processing with the payment provider or bank.
+
+Duplicate or repeated transactions can sometimes occur due to network delays, multiple payment attempts, or scanning the same QR code more than once. In such cases, one transaction may be successfully completed while the other remains pending or requires manual verification.
+
+To help resolve the issue, please contact Customer Support as soon as possible and provide the following details:
+
+* Your registered username
+* Registered mobile number
+* Clear and complete copies or screenshots of both payment receipts
+* Transaction reference numbers (if available)
+
+This will allow the support team to properly investigate and assist in checking whether the uncredited transaction can be verified, refunded, or processed accordingly. For future transactions, always ensure you are using the latest valid QR code and confirm payment completion before initiating another attempt.` },
+  { question: `Can I use any bank account or e-wallet to make a deposit?`, category: `Deposit`, answer: `For security and compliance reasons, we strongly recommend using bank accounts or e-wallets that are registered under your own name and are linked to your verified 6Bet account details.
+
+Using third-party or mismatched payment accounts may result in transaction delays, additional verification requirements, or potential rejection of the deposit.
+
+To ensure smooth processing, please make sure that the name on your payment method matches the registered details on your 6Bet account. This helps prevent complications and ensures faster crediting of your funds.` },
+  { question: `Why was I redirected back to the deposit page after payment?`, category: `Deposit`, answer: `This usually happens when the payment session is not successfully completed or is interrupted while being processed by the payment provider.
+
+Common reasons include:
+
+* The payment session timing out before completion
+* An unstable or interrupted internet connection
+* Closing or leaving the browser/app before the transaction is finalized
+
+If this occurs, please first verify the status of your transaction directly with your bank or e-wallet provider. In many cases, the payment may still be processing or already completed on their end.
+
+If the transaction has been deducted but not reflected in your 6Bet account, please contact support and provide your transaction details for assistance.` },
+  { question: `What should I do if I closed the browser or app during payment?`, category: `Deposit`, answer: `If you accidentally close the browser or app while processing a deposit, there is no need to immediately make another payment attempt.
+
+First, please check your account balance and transaction history on your 6Bet account to see if the deposit was successfully credited.
+
+If the amount does not appear, kindly verify the transaction status with your bank or e-wallet provider, as the payment may still be processing or already completed on their end.
+
+To avoid duplicate charges, only retry the deposit once you have confirmed that the initial transaction was not successful.` },
+  { question: `Is there a limit to how many times I can deposit per day?`, category: `Deposit`, answer: `Generally, there is no strict limit on the number of deposit transactions you can make per day on your 6Bet account.
+
+However, please note that certain banks or e-wallet providers may apply their own limits on transaction frequency, amount, or daily usage depending on their policies.
+
+If you encounter any restrictions while depositing, we recommend checking directly with your payment provider for the most accurate information.` },
+  { question: `How can I confirm that my deposit was successful?`, category: `Deposit`, answer: `A successful deposit is usually confirmed once your transaction has been completed by your selected payment provider and reflected in your account.
+
+You can verify this in the following ways:
+
+* A confirmation message or success notification displayed after payment
+* An updated balance in your 6Bet account
+* A receipt or transaction confirmation from your bank or e-wallet provider
+
+If your balance does not update immediately, please wait a few minutes and refresh your account. In some cases, processing may take slightly longer depending on the payment method used.` },
+  { question: `Why does my bank sometimes block deposit transactions?`, category: `Deposit`, answer: `In some cases, banks may automatically flag or temporarily block transactions related to online gaming platforms due to their internal security systems, fraud prevention policies, or risk controls.
+
+If this happens, you may receive a notification from your bank or find that the transaction is declined.
+
+To resolve this, you may:
+
+* Contact your bank to confirm and authorize the transaction
+* Check if your card or account has restrictions on certain merchant types
+* Try using another supported payment method available on your 6Bet account
+
+If the issue persists, your payment provider can usually give the most accurate explanation for the block.` },
+  { question: `Can I switch payment methods during a deposit process?`, category: `Deposit`, answer: `Once a deposit has been initiated, the selected payment method cannot be changed mid-transaction.
+
+If you wish to use a different payment option, you will need to either complete or cancel the current transaction (if it is still pending), then start a new deposit request using your preferred method on your 6Bet account.
+
+To avoid issues or duplicate transactions, always ensure your chosen payment method is correct before confirming the deposit.` },
+  { question: `Can I reuse a previous successful payment channel or QR code?`, category: `Deposit`, answer: `For security and transaction accuracy, each deposit generates a unique payment session or QR code.
+
+Because of this, previously used payment channels or QR codes cannot be reused. Attempting to do so may result in a failed transaction or an uncredited deposit.
+
+To ensure your payment is processed correctly, always generate a new deposit request from your 6Bet account before making any transaction.` },
+  { question: `How to withdraw from 6bet?`, category: `Withdrawal`, answer: `To make a withdrawal, go to the homepage and click the menu icon on the left side, then select “Withdraw.”
+
+Before proceeding, ensure that your account is linked to a valid withdrawal method such as GCash, Maya, or a bank account.
+
+Enter the amount you wish to withdraw, then input your transaction password to confirm the request. Once submitted, your withdrawal will be processed based on the platform’s standard processing time on your 6Bet account.` },
+  { question: `Why does cash-out take longer than cash-in?`, category: `Withdrawal`, answer: `Deposits are typically processed instantly as they are handled through automated payment systems.
+
+Withdrawals, on the other hand, may take longer because they require additional security verification and compliance checks to ensure transaction safety and prevent unauthorized activity.
+
+Rest assured, all withdrawal requests on your 6Bet account are securely processed, and efforts are made to complete them as quickly as possible.` },
+  { question: `Why was my withdrawal request declined?`, category: `Withdrawal`, answer: `A withdrawal request may be declined for several reasons, including incomplete account verification, incorrect or mismatched withdrawal details, insufficient turnover requirements, or security-related checks.
+
+To avoid delays, ensure that all account information on your 6Bet profile is accurate and up to date before submitting a withdrawal request.
+
+If the issue persists, reviewing your account status and transaction history may help identify the specific cause of the decline.` },
+  { question: `How long does it take to receive my withdrawal?`, category: `Withdrawal`, answer: `Withdrawal processing times may vary depending on your selected payment method and the verification status of your account on the 6Bet platform.
+
+In most cases, withdrawals are processed within a few minutes to a few hours. However, some transactions may take longer during peak periods or when additional security checks are required.
+
+If your withdrawal is delayed beyond the expected timeframe, it is recommended to check your transaction status or contact support for further assistance.` },
+  { question: `What payment methods are available for withdrawal?`, category: `Withdrawal`, answer: `You may withdraw your funds using any of the supported payment options, including GCash, Maya, or your registered bank account.
+
+To ensure smooth processing, please make sure that your withdrawal account is under your own name and properly linked to your 6Bet profile before submitting a request.
+
+Using correctly registered payment details helps prevent delays and ensures faster transaction approval.` },
+  { question: `Is there a minimum withdrawal amount?`, category: `Withdrawal`, answer: `Yes. The minimum withdrawal amount is ₱100.
+
+Please ensure that your withdrawal request meets the minimum threshold before submitting it through your 6Bet account. Requests below the minimum amount cannot be processed.` },
+  { question: `Why is my withdrawal still pending?`, category: `Withdrawal`, answer: `A withdrawal may remain in pending status while it is being processed or undergoing security verification checks. This step helps ensure the safety and legitimacy of all transactions.
+
+Processing time can vary depending on the selected payment method and system load on the 6Bet platform.
+
+If your withdrawal stays pending beyond the usual timeframe, you may contact Customer Service for an update and further assistance.` },
+  { question: `Can I cancel my withdrawal request?`, category: `Withdrawal`, answer: `Withdrawal requests can only be cancelled while they are still in pending status.
+
+If cancellation is still possible, you may also contact Customer Support for assistance in reviewing or cancelling your request before it is processed. Once the withdrawal has been approved or completed, it can no longer be reversed.
+
+For any assistance, you can reach out to the support team of your 6Bet account.` },
+  { question: `What should I do if I entered incorrect withdrawal details?`, category: `Withdrawal`, answer: `If you have entered incorrect withdrawal information, please contact Customer Service immediately before the transaction is processed.
+
+Providing incorrect details may result in delays, failed transactions, or funds being sent to the wrong account. Once a withdrawal has been completed, it may no longer be reversible.
+
+Please ensure that all withdrawal details are correct before submitting your request on the 6Bet platform to avoid any issues.` },
+  { question: `What happens if my withdrawal fails?`, category: `Withdrawal`, answer: `If a withdrawal fails, the transaction is typically reversed and the funds are returned to your wallet after system verification.
+
+In most cases, the returned amount will reflect automatically in your account once processing is completed.
+
+If the funds are not credited back within the expected timeframe, please contact Customer Service and provide your registered username along with the withdrawal transaction details for assistance.` },
+  { question: `Why do I need to complete turnover requirements before withdrawing?`, category: `Withdrawal`, answer: `Turnover or wagering requirements are in place to ensure that funds—especially those tied to deposits and promotional bonuses—are used according to the platform’s terms before they can be withdrawn.
+
+These requirements must be completed before a withdrawal can be processed, particularly when bonuses or special promotions are involved. Each promotion may have different conditions, so it’s important to review the specific terms and requirements carefully.
+
+For full details and account-related information, please refer to your profile on the 6Bet platform or the applicable promotion rules.` },
+  { question: `How can I check the status of my withdrawal?`, category: `Withdrawal`, answer: `You can check the status of your withdrawal by going to your Account Records or Withdrawal History section within your account.
+
+There, you will be able to see real-time updates on your request, including statuses such as Processing, Transferring, Successful, or Audit Failure.
+
+If you need clarification on any status, you may contact Customer Service for further assistance.` },
+  { question: `Why can’t I bind my bank card or e-wallet account?`, category: `Withdrawal`, answer: `If you receive a message indicating that your bank card or e-wallet account already exists, it means the payment details you are trying to add are already linked to another account in our system.
+
+For security reasons, each bank account or e-wallet can only be bound to one account at a time.
+
+To proceed, please use a different bank card or e-wallet account that has not yet been registered or linked to any other account.` },
+  { question: `How many e-wallets or bank accounts can I add?`, category: `Withdrawal`, answer: `You may link up to three (3) e-wallet accounts and three (3) bank accounts to your account.
+
+This allows you to manage multiple withdrawal options conveniently while ensuring all payment details remain properly secured within your account.` },
+  { question: `How can I unbind my e-wallet or bank account?`, category: `Withdrawal`, answer: `Each account is allowed to link up to three (3) e-wallet accounts and three (3) bank accounts.
+
+If you have already reached the maximum limit and wish to unbind an existing payment method, please contact our Customer Service team for assistance.
+
+For verification, kindly prepare the following details:
+
+* Registered username
+* Registered mobile number
+* Registered email address
+* One (1) valid ID
+* Latest deposit receipt (if applicable)
+* The e-wallet or bank account you wish to unbind
+
+Once verified, your request will be processed accordingly` },
+  { question: `Can I withdraw to a different name or account holder?`, category: `Withdrawal`, answer: `No. For security reasons, withdrawals must be sent only to payment methods registered under the same name as your 6Bet account. Requests using mismatched account names will be declined to prevent fraud and unauthorized transfers.` },
+  { question: `What happens if I submit multiple withdrawal requests?`, category: `Withdrawal`, answer: `If multiple withdrawal requests are submitted, they will typically be processed in order or consolidated depending on system rules. To avoid delays, it is recommended to wait for your current request to complete before submitting another.` },
+  { question: `What is self-exclusion?`, category: `Self Exclusion`, answer: `Self-exclusion is a responsible gaming tool designed to help players manage their gambling activity by voluntarily restricting access to their gaming account for a specified period or permanently. Once a self-exclusion request is activated, the player will be unable to log in, place bets, or access certain account features, depending on the duration and terms selected.
+
+This feature is intended to support individuals who feel they need a break from gaming or wish to take proactive steps toward maintaining control over their play. During the self-exclusion period, access remains blocked in accordance with the chosen timeframe, and reactivation is only possible once the exclusion period has ended and any required verification or cooling-off procedures have been completed.` },
+  { question: `How can I apply for self-exclusion?`, category: `Self Exclusion`, answer: `You can apply for self-exclusion by completing the official Self-Exclusion Application Form and ensuring that your account is fully KYC-verified. Once submitted, your request will be reviewed and processed in accordance with responsible gaming procedures.
+
+Alternatively, you may also request self-exclusion by contacting our Customer Service team, who will guide you through the process and assist with the necessary verification and submission requirements.
+
+Self-exclusion requests are handled carefully to ensure player protection and compliance with responsible gaming standards set by the regulator, PAGCOR.
+
+Self-Exclusion Application Form:
+Form: [https://www.pagcor.ph/regulatory/pdf/Self-Exclusion-Application-Form.pdf` },
+  { question: `What self-exclusion periods are available?`, category: `Self Exclusion`, answer: `We offer flexible self-exclusion periods to support different levels of player preference and responsible gaming needs. Depending on your request, you may choose from the following durations: six (6) months, one (1) year, or five (5) years.
+
+Once selected and approved, the self-exclusion period will remain active for the full duration and cannot be lifted early. This ensures the effectiveness of the program in helping players maintain control over their gaming activity.
+
+All self-exclusion requests are processed in accordance with responsible gaming guidelines set by the regulator, PAGCOR, to ensure proper player protection and compliance standards.` },
+  { question: `What happens after I activate self-exclusion?`, category: `Self Exclusion`, answer: `Once your self-exclusion request has been successfully activated, your account will be temporarily or permanently restricted based on the selected duration. During this period, you will not be able to log in, make deposits, place bets, or access any gaming services or promotional offers associated with your account.
+
+This restriction is enforced across all relevant platform features to ensure full compliance with responsible gaming measures and to support players in taking a meaningful break from gambling activity. Access to your account will only be restored once the self-exclusion period has fully elapsed and any required reactivation procedures have been completed` },
+  { question: `Can I cancel or shorten my self-exclusion period?`, category: `Self Exclusion`, answer: `No. Once a self-exclusion request has been successfully activated, it cannot be canceled, reversed, or shortened before the selected exclusion period has fully expired. This policy is in place to ensure that the self-exclusion program remains effective and supports responsible gaming commitments.
+
+During the active exclusion period, all account access remains restricted, and normal gaming functions cannot be restored under any circumstances. This includes login access, deposits, gameplay, and promotional participation.
+
+Once the selected duration has been completed, any account reactivation will be subject to standard review and verification procedures in line with responsible gaming guidelines established by the PAGCOR.` },
+  { question: `How do I reactivate my account after the self-exclusion period ends?`, category: `Self Exclusion`, answer: `Once your self-exclusion period has fully expired, you may request to reactivate your account by contacting our Customer Service team. Your request will be reviewed in accordance with standard security and responsible gaming procedures before access is restored.
+
+Depending on the case, additional verification may be required to confirm your identity and ensure compliance with platform policies. Once your request is approved, your account access will be re-enabled, allowing you to resume normal use of gaming services.
+
+All reactivation requests are handled in line with responsible gaming standards set by the PAGCOR, to ensure safe and compliant account restoration.` },
+  { question: `Is self-exclusion confidential?`, category: `Self Exclusion`, answer: `Yes. All self-exclusion requests are treated with strict confidentiality and are handled in accordance with the platform’s privacy and data protection policies. Information related to your request is only accessed by authorized personnel involved in processing and compliance, and is not shared beyond what is required for regulatory and responsible gaming purposes.
+
+This ensures that your decision to self-exclude is respected and managed discreetly, while still meeting applicable legal and regulatory obligations.` },
+  { question: `Can I recover my account after self-exclusion?`, category: `Self Exclusion`, answer: `If your account has been disabled due to self-exclusion, it cannot be recovered or reactivated during the active exclusion period. This restriction is applied in line with responsible gaming policies and regulatory guidelines to ensure the effectiveness of the self-exclusion program.
+
+Once the selected self-exclusion period has fully expired, you may contact Customer Support to request account review and possible reactivation. Any reactivation will be subject to verification and approval based on standard platform and compliance procedures.
+
+All processes are carried out in accordance with responsible gaming requirements set by the PAGCOR, to ensure proper player protection and compliance.` },
+  { question: `Can someone else request self-exclusion on my behalf?`, category: `Self Exclusion`, answer: `Generally, self-exclusion must be requested directly by the account holder to ensure consent and authenticity. However, in exceptional cases—such as vulnerability concerns—a support team may provide guidance to a concerned family member or authorized representative. Final approval still requires verification procedures to protect user privacy and prevent misuse.` }
+];
+
+const FEATURED = new Set([
+  "How to Play on 6BET",
+  "How Do I Complete KYC Verification?",
+  "Get New Member Package - Total Up to 7,010",
+  "How do I make a deposit on 6bet?",
+  "How to withdraw from 6bet?",
+  "What is self-exclusion?"
+]);
+
+const CATEGORY_ICONS = {
+  "Account Concerns": `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" fill="#E8F4FF" stroke="#4A90D9" stroke-width="1.5"/><circle cx="12" cy="9" r="3" fill="#4A90D9"/><path d="M6 19c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#4A90D9" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  "KYC": `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="8" width="13" height="10" rx="2" fill="#FFF3E0" stroke="#F4A234" stroke-width="1.5"/><circle cx="15" cy="8" r="4" fill="#7C3AED"/><path d="M13 8l1.5 1.5L17 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  "Promotions": `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.5 4.5H18l-3.75 2.7 1.5 4.5L12 12l-3.75 2.7 1.5-4.5L6 7.5h4.5L12 3z" fill="#FFD700" stroke="#F4A234" stroke-width="1"/><rect x="5" y="16" width="14" height="5" rx="2" fill="#FF6B6B"/></svg>`,
+  "Withdrawal": `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/><rect x="3" y="9" width="18" height="3" fill="#4CAF50"/><path d="M17 15l2 2-2 2M19 17h-5" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  "Deposit": `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/><rect x="3" y="9" width="18" height="3" fill="#4CAF50"/><path d="M17 19l-2-2 2-2M15 17h5" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  "Self Exclusion": `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FFF0F0" stroke="#FF6B6B" stroke-width="1.5"/><path d="M9 9l6 6M15 9l-6 6" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round"/></svg>`
+};
+
+let selectedCategory = "All";
+
+function buildCategories() {
+  const cats = ["All", ...new Set(FAQ_ITEMS.map(i => i.category))];
+  document.getElementById("categories").innerHTML = cats.map(c => `
+    <button class="cat-btn ${c === selectedCategory ? 'active' : ''}" onclick="selectCategory('${c}')">
+      ${CATEGORY_ICONS[c] || ""}${c}
+    </button>
+  `).join("");
+}
+
+function selectCategory(cat) {
+  selectedCategory = cat;
+  buildCategories();
+  renderFAQ();
+}
+
+function renderFAQ() {
+  const q = document.getElementById("searchInput").value.toLowerCase().trim();
+  const grid = document.getElementById("faqGrid");
+  let items = FAQ_ITEMS.filter(item => {
+    if (q) return item.question.toLowerCase().includes(q);
+    if (selectedCategory === "All") return FEATURED.has(item.question);
+    return item.category === selectedCategory;
+  });
+  if (items.length === 0) {
+    grid.innerHTML = `<div class="no-results">No questions found matching your search.</div>`;
+    return;
+  }
+  grid.innerHTML = items.map(item => `
+    <button class="faq-card" onclick="openModal(${FAQ_ITEMS.indexOf(item)})">
+      <span>${item.question}</span>
+      <svg class="arrow" width="14" height="14" viewBox="0 0 20 20" fill="none">
+        <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  `).join("");
+}
+
+function openModal(index) {
+  const item = FAQ_ITEMS[index];
+  document.getElementById("modalCategory").innerHTML = (CATEGORY_ICONS[item.category] || "") + item.category;
+  document.getElementById("modalQuestion").textContent = item.question;
+  document.getElementById("modalAnswer").textContent = item.answer;
+  document.getElementById("modalOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById("modalOverlay")) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById("modalOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModalDirect(); });
+
+const MUSIC_URL = "music.mp3";
+let audio = null, musicStarted = false, isMuted = false;
+
+function toggleMusic() {
+  if (!musicStarted) {
+    audio = new Audio(MUSIC_URL);
+    audio.loop = true;
+    audio.volume = 0.4;
+    audio.play().then(() => {
+      musicStarted = true; isMuted = false;
+      document.getElementById("musicHint").style.display = "none";
+      document.getElementById("muteIcon").style.display = "none";
+      document.getElementById("barsIcon").style.display = "flex";
+      document.getElementById("musicBtn").classList.add("playing");
+    }).catch(err => console.warn("Play failed:", err));
+    return;
+  }
+  if (isMuted) {
+    audio.muted = false; isMuted = false;
+    document.getElementById("muteIcon").style.display = "none";
+    document.getElementById("barsIcon").style.display = "flex";
+    document.getElementById("musicBtn").classList.add("playing");
+  } else {
+    audio.muted = true; isMuted = true;
+    document.getElementById("muteIcon").style.display = "block";
+    document.getElementById("barsIcon").style.display = "none";
+    document.getElementById("musicBtn").classList.remove("playing");
+  }
+}
+
+function showHome() {
+  document.getElementById('homeView').style.display = '';
+  document.getElementById('faqView').style.display = 'none';
+  selectedCategory = 'All';
+  const si = document.getElementById('searchInput');
+  if (si) si.value = '';
+}
+
+function showCategory(cat) {
+  document.getElementById('homeView').style.display = 'none';
+  document.getElementById('faqView').style.display = '';
+  buildCategories();
+  selectCategory(cat);
+}
+
+showHome();
+</script>
+</body>
+</html>
